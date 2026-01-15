@@ -1,0 +1,32 @@
+spring:
+
+  application:
+    name: InfraApiProject
+  datasource:
+    url: jdbc:postgresql://localhost:5432/infraServices
+    username: dbuser
+    password: askdjdj!3wsed$#
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:7080/realms/allthom
+          jwk-set-uri: http://localhost:7080/realms/allthom/protocol/openid-connect/certs
+jwt:
+  auth:
+    converter:
+      resource-id: infraapi
+      principle-attribute: preferred_username
+  main:
+    allow-circular-references: true
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG

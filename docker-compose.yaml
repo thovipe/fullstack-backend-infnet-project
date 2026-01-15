@@ -1,0 +1,83 @@
+version: '1.1'
+
+services:
+  db:
+    image: postgres:18.1-alpine # Use a specific version, e.g., 16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: dbuser # Default is 'postgres' if not specified
+      POSTGRES_PASSWORD: askdjdj!3wsed$#
+      POSTGRES_DB: infraServices # Creates a default database on first run
+    ports:
+      - "5432:5432" # Maps host port 5432 to container port 5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data # Persistent storage location
+      - ./init-db/01_schema.sql:/docker-entrypoint-initdb.d/01_schema.sql
+      - ./init-db/02_create_keycloak_db.sql:/docker-entrypoint-initdb.d/02_create_keycloak_db.sql
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    restart: always
+    depends_on:
+      - db
+    environment:
+      PGADMIN_DEFAULT_EMAIL: user@localhost.com
+      PGADMIN_DEFAULT_PASSWORD: password
+    ports:
+      - 8090:80
+    volumes:
+      - ./data/pgadmin:/var/lib/pgadmin
+  keycloak:
+    image: quay.io/keycloak/keycloak:latest
+    environment:
+      KC_HOSTNAME: localhost
+      KC_HOSTNAME_PORT: 7080
+      KC_HOSTNAME_STRICT_BACKCHANNEL: false
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+      KC_HEALTH_ENABLED: true
+      KC_HTTP_ENABLED: true
+      KC_DB_USERNAME: dbuser
+      KC_DB_PASSWORD: askdjdj!3wsed$#
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://db/keycloak
+      KC_LOG_LEVEL: info
+    command: ["start", "--http-port", "7080", "--https-port", "7443"]
+    ports:
+      - 7080:7080
+      - 7443:7443
+    depends_on:
+      - db
+
+  elasticsearch:
+      image: docker.elastic.co/elasticsearch/elasticsearch:9.2.4
+      container_name: elasticsearch
+      ports:
+        - "9200:9200"
+      environment:
+        # Use single-node discovery for development
+        discovery.type: single-node
+        # Set passwords from the .env file
+        # Allocate sufficient memory (adjust as needed, 1GB is a good minimum for local dev)
+        ES_JAVA_OPTS: "-Xms512m -Xmx512m"
+        # Other necessary settings, security is enabled by default from version 8.0+
+        # ELASTIC_SECURITY_ENABLED: "true" # This is default behavior for v8+
+      volumes:
+        - esdata:/usr/share/elasticsearch/data # Persist data outside the container
+      healthcheck:
+        test: [ "CMD", "curl", "--silent", "--fail", "https://localhost:9200/_cluster/health?local=true" ]
+        interval: 10s
+        timeout: 10s
+        retries: 10
+
+  kibana:
+      image: docker.elastic.co/kibana/kibana:9.2.4
+      container_name: kibana
+      ports:
+        - "5601:5601"
+      environment:
+        ELASTICSEARCH_HOSTS: '["https://elasticsearch:9200"]' # Use the service name defined above
+volumes:
+  postgres_data:
+  esdata: # Define the named volume
+    driver: local
