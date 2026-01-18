@@ -43,6 +43,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <version>1.18.42</version>
             <scope>annotationProcessor</scope>
         </dependency>
         <dependency>
@@ -84,6 +85,23 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.14.1</version> <!-- Use a recent version (e.g., 3.8.1 or newer) -->
+                <configuration>
+                    <source>25</source> <!-- Match your project's Java version -->
+                    <target>25</target> <!-- Match your project's Java version -->
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version> <!-- Use a property for version -->
+                        </path>
+                        <!-- Add other annotation processors here if you have them (e.g., MapStruct, QueryDSL) -->
+                    </annotationProcessorPaths>
+                </configuration>
             </plugin>
         </plugins>
     </build>

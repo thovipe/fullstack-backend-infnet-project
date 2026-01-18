@@ -2,7 +2,11 @@ package br.edu.infnet.infraapiproject.services;
 
 import br.edu.infnet.infraapiproject.model.dto.ApplicationDTODocument;
 import co.elastic.clients.elasticsearch.ElasticsearchClient;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,20 +17,30 @@ public class SearchServices {
 
     private final ElasticsearchClient esClient;
 
-    public List<ApplicationDTODocument> search() throws Exception {
+    public Page<ApplicationDTODocument> search( Pageable pageable, String searchText) throws Exception {
+
 
         var response = esClient.search(s -> s
                 .index("applications")
                 .query(q -> q
-                        .term(t -> t
-                                .field("description")
-                                .value(v -> v.stringValue("automation"))
+                        .queryString(t -> t
+                                .defaultField("searchText")
+                                .query(searchText)
                         )
-                ), ApplicationDTODocument.class);
+                )
+                        .size(pageable.getPageSize())
+                        .from(pageable.getPageNumber() * pageable.getPageSize())
+                , ApplicationDTODocument.class);
 
-        return response.hits().hits().stream().map(h -> {
-           ApplicationDTODocument doc = h.source();
-           return doc;
+        List<ApplicationDTODocument> responseList = response.hits().hits().stream().map(h -> {
+            ApplicationDTODocument doc = h.source();
+            return doc;
         } ).toList();
+
+        long totalHits = response.hits().total().value();
+
+        Page<ApplicationDTODocument> pages = new PageImpl<>(responseList,  pageable, totalHits);
+
+        return pages;
     };
 }

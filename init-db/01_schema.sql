@@ -1,7 +1,7 @@
 create table Users (
     id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name VARCHAR(50),
-    email VARCHAR(20),
+    email VARCHAR(60),
     password VARCHAR(255)
 );
 
@@ -30,7 +30,7 @@ create table Projects (
 create table Applications (
     id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name VARCHAR(50),
-    description VARCHAR(80),
+    description VARCHAR(600),
     project_id INTEGER,
     appteam_id INTEGER,
     CONSTRAINT fk_projects

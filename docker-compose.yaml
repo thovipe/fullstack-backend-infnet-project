@@ -1,7 +1,7 @@
 version: '1.2'
 
 services:
-  db:
+  postgres:
     image: postgres:18.1-alpine # Use a specific version, e.g., 16
     restart: unless-stopped
     environment:
@@ -14,12 +14,14 @@ services:
       - postgres_data:/var/lib/postgresql/data # Persistent storage location
       - ./init-db/01_schema.sql:/docker-entrypoint-initdb.d/01_schema.sql
       - ./init-db/02_create_keycloak_db.sql:/docker-entrypoint-initdb.d/02_create_keycloak_db.sql
+    networks:
+     - project
   pgadmin:
     image: dpage/pgadmin4
     container_name: pgadmin
     restart: always
     depends_on:
-      - db
+      - postgres
     environment:
       PGADMIN_DEFAULT_EMAIL: user@localhost.com
       PGADMIN_DEFAULT_PASSWORD: password
@@ -27,10 +29,12 @@ services:
       - 8090:80
     volumes:
       - ./data/pgadmin:/var/lib/pgadmin
+    networks:
+      - project
   keycloak:
     image: quay.io/keycloak/keycloak:latest
     environment:
-      KC_HOSTNAME: localhost
+      KC_HOSTNAME: keycloak
       KC_HOSTNAME_PORT: 7080
       KC_HOSTNAME_STRICT_BACKCHANNEL: false
       KC_BOOTSTRAP_ADMIN_USERNAME: admin
@@ -40,14 +44,16 @@ services:
       KC_DB_USERNAME: dbuser
       KC_DB_PASSWORD: askdjdj!3wsed$#
       KC_DB: postgres
-      KC_DB_URL: jdbc:postgresql://db/keycloak
+      KC_DB_URL: jdbc:postgresql://postgres/keycloak
       KC_LOG_LEVEL: info
     command: ["start", "--http-port", "7080", "--https-port", "7443"]
     ports:
       - 7080:7080
       - 7443:7443
     depends_on:
-      - db
+      - postgres
+    networks:
+      - project
 
   elasticsearch:
       image: docker.elastic.co/elasticsearch/elasticsearch:9.2.4
@@ -70,6 +76,8 @@ services:
         interval: 10s
         timeout: 10s
         retries: 10
+      networks:
+          - project
 
   kibana:
       image: docker.elastic.co/kibana/kibana:9.2.4
@@ -80,7 +88,45 @@ services:
         ELASTICSEARCH_HOSTS: '["http://elasticsearch:9200"]' # Use the service name defined above
       depends_on:
         - elasticsearch
+      networks:
+        - project
+
+  api:
+      image: infraapi:0.0.4
+      container_name: infraapi
+      ports:
+        - "8080:8080"
+      environment:
+        DATABASE_URL: jdbc:postgresql://postgres:5432/infraServices
+        ISSUER_URI: http://keycloak:7080/realms/allthom
+        JWK_URI: http://keycloak:7080/realms/allthom/protocol/openid-connect/certs
+      depends_on:
+        - postgres
+        - elasticsearch
+        - keycloak
+      networks:
+        - project
+  front:
+      image: idp-lite:0.0.2
+      container_name: idplite
+      ports:
+        - "3000:3000"
+      environment:
+        KEYCLOAK_CLIENT_ID: "idp-lite"
+        KEYCLOAK_CLIENT_SECRET: "2CTzjWclz9kTbSRbaMiFRlYIjxtAGE6B"
+        KEYCLOAK_ISSUER: "http://keycloak:7080/realms/allthom"
+        NEXTAUTH_URL: "http://front:3000"
+        NEXTAUTH_SECRET: "qc+OdeWWYsCzn8SOFuwP+lekpLSvnXO4fdKVJCwPOU8="
+        HTTP_API_URI: "http://api:8080"
+      depends_on:
+        - api
+      networks:
+        - project
 volumes:
   postgres_data:
   esdata: # Define the named volume
     driver: local
+
+networks:
+   project:
+     driver: bridge

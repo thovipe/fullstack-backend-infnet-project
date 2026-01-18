@@ -3,7 +3,7 @@ spring:
   application:
     name: InfraApiProject
   datasource:
-    url: jdbc:postgresql://localhost:5432/infraServices
+    url: ${DATABASE_URL}
     username: dbuser
     password: askdjdj!3wsed$#
     driver-class-name: org.postgresql.Driver
@@ -16,8 +16,8 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:7080/realms/allthom
-          jwk-set-uri: http://localhost:7080/realms/allthom/protocol/openid-connect/certs
+          issuer-uri: ${ISSUER_URI}
+          jwk-set-uri: ${JWK_URI}
 jwt:
   auth:
     converter:
@@ -29,4 +29,4 @@ logging:
   level:
     org:
       springframework:
-        web: DEBUG
+        web: INFO

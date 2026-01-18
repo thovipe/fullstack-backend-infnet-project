@@ -2,10 +2,7 @@ package br.edu.infnet.infraapiproject.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
@@ -26,5 +23,6 @@ public class AppTeam {
     @OneToMany
     @JoinTable( name = "appteams_users", joinColumns = @JoinColumn(name="appteam_id"), inverseJoinColumns = @JoinColumn(name="user_id"))
     private List<User> members;
+
 
 }
