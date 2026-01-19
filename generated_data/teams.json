@@ -1,0 +1,239 @@
+[
+  {
+    "id": 1,
+    "name": "Data Team 1",
+    "description": "Team responsible for .NET development and infrastructure",
+    "memberIds": [
+      44,
+      43,
+      1,
+      26,
+      49
+    ]
+  },
+  {
+    "id": 2,
+    "name": "DevOps Team 2",
+    "description": "Team responsible for Ruby development and maintenance",
+    "memberIds": [
+      13,
+      43
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Backend Team 3",
+    "description": "Team responsible for Ruby development and features",
+    "memberIds": [
+      30,
+      10,
+      21,
+      42,
+      13
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Infrastructure Team 4",
+    "description": "Team responsible for Python development and infrastructure",
+    "memberIds": [
+      36,
+      22,
+      14,
+      28,
+      44,
+      10,
+      50,
+      29
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Growth Team 5",
+    "description": "Team responsible for Go development and optimization",
+    "memberIds": [
+      41,
+      25,
+      30
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Security Team 6",
+    "description": "Team responsible for Node.js development and maintenance",
+    "memberIds": [
+      15,
+      29,
+      41,
+      27,
+      49,
+      28,
+      50
+    ]
+  },
+  {
+    "id": 7,
+    "name": "AI/ML Team 7",
+    "description": "Team responsible for React development and features",
+    "memberIds": [
+      25,
+      1,
+      42,
+      32,
+      24,
+      15,
+      23,
+      16
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Growth Team 8",
+    "description": "Team responsible for Go development and infrastructure",
+    "memberIds": [
+      5,
+      38,
+      4,
+      49,
+      14,
+      16,
+      8,
+      10
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Backend Team 9",
+    "description": "Team responsible for Go development and infrastructure",
+    "memberIds": [
+      15,
+      23,
+      50
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Product Team 10",
+    "description": "Team responsible for React development and support",
+    "memberIds": [
+      19,
+      49,
+      26,
+      4,
+      3
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Security Team 11",
+    "description": "Team responsible for Python development and optimization",
+    "memberIds": [
+      1,
+      14,
+      7,
+      20,
+      36,
+      44,
+      29
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Data Team 12",
+    "description": "Team responsible for PHP development and support",
+    "memberIds": [
+      50,
+      35,
+      34,
+      41,
+      8,
+      22
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Product Team 13",
+    "description": "Team responsible for Go development and optimization",
+    "memberIds": [
+      12,
+      13
+    ]
+  },
+  {
+    "id": 14,
+    "name": "DevOps Team 14",
+    "description": "Team responsible for Ruby development and maintenance",
+    "memberIds": [
+      27,
+      44,
+      4
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Infrastructure Team 15",
+    "description": "Team responsible for Ruby development and features",
+    "memberIds": [
+      26,
+      32,
+      25
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Mobile Team 16",
+    "description": "Team responsible for .NET development and infrastructure",
+    "memberIds": [
+      30,
+      26,
+      37
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Frontend Team 17",
+    "description": "Team responsible for C# development and support",
+    "memberIds": [
+      43,
+      4,
+      28
+    ]
+  },
+  {
+    "id": 18,
+    "name": "AI/ML Team 18",
+    "description": "Team responsible for .NET development and maintenance",
+    "memberIds": [
+      6,
+      21,
+      10,
+      24,
+      12,
+      3,
+      27,
+      17
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Web Team 19",
+    "description": "Team responsible for Go development and optimization",
+    "memberIds": [
+      18,
+      50,
+      19,
+      36,
+      21,
+      10
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Data Team 20",
+    "description": "Team responsible for C# development and features",
+    "memberIds": [
+      30,
+      49
+    ]
+  }
+]

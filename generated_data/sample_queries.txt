@@ -1,0 +1,273 @@
+
+-- ========================================
+-- PostgreSQL Sample Queries (ACID)
+-- ========================================
+
+-- 1. Get application with team and project details (JOIN)
+SELECT 
+    a.id,
+    a.name as app_name,
+    a.description as app_description,
+    t.name as team_name,
+    p.name as project_name,
+    u.name as project_owner
+FROM applications a
+JOIN appteams t ON a.appteam_id = t.id
+JOIN projects p ON a.project_id = p.id
+JOIN users u ON p.user_id = u.id
+WHERE a.id = 1;
+
+-- 2. Get all applications for a team with member details
+SELECT 
+    a.id,
+    a.name as app_name,
+    t.name as team_name,
+    COUNT(DISTINCT atu.user_id) as member_count,
+    STRING_AGG(DISTINCT u.name, ', ') as members
+FROM applications a
+JOIN appteams t ON a.appteam_id = t.id
+LEFT JOIN appteams_users atu ON t.id = atu.appteam_id
+LEFT JOIN users u ON atu.user_id = u.id
+WHERE t.id = 1
+GROUP BY a.id, a.name, t.name;
+
+-- 3. Get projects with application count
+SELECT 
+    p.id,
+    p.name as project_name,
+    u.name as owner,
+    COUNT(a.id) as application_count
+FROM projects p
+JOIN users u ON p.user_id = u.id
+LEFT JOIN applications a ON p.id = a.project_id
+GROUP BY p.id, p.name, u.name
+ORDER BY application_count DESC;
+
+-- 4. Find users and their team memberships
+SELECT 
+    u.id,
+    u.name,
+    u.email,
+    COUNT(DISTINCT atu.appteam_id) as team_count,
+    STRING_AGG(DISTINCT t.name, ', ') as teams
+FROM users u
+LEFT JOIN appteams_users atu ON u.id = atu.user_id
+LEFT JOIN appteams t ON atu.appteam_id = t.id
+GROUP BY u.id, u.name, u.email
+ORDER BY team_count DESC;
+
+-- 5. ACID Transaction: Create new application with validation
+BEGIN;
+    -- Lock the project and team to ensure they exist
+    SELECT id FROM projects WHERE id = 1 FOR UPDATE;
+    SELECT id FROM appteams WHERE id = 1 FOR UPDATE;
+    
+    -- Insert the application
+    INSERT INTO applications (name, description, appteam_id, project_id)
+    VALUES ('New API Service', 'Handles authentication and authorization', 1, 1)
+    RETURNING id;
+    
+    -- Could add audit log here
+COMMIT;
+
+-- 6. Get team workload (applications per team)
+SELECT 
+    t.id,
+    t.name as team_name,
+    COUNT(a.id) as app_count,
+    COUNT(DISTINCT atu.user_id) as member_count
+FROM appteams t
+LEFT JOIN applications a ON t.id = a.appteam_id
+LEFT JOIN appteams_users atu ON t.id = atu.appteam_id
+GROUP BY t.id, t.name
+ORDER BY app_count DESC;
+
+-- 7. Find applications by project owner
+SELECT 
+    a.id,
+    a.name as app_name,
+    p.name as project_name,
+    u.name as project_owner,
+    t.name as team_name
+FROM applications a
+JOIN projects p ON a.project_id = p.id
+JOIN users u ON p.user_id = u.id
+JOIN appteams t ON a.appteam_id = t.id
+WHERE u.email = 'john.smith1@example.com';
+
+-- 8. Get team collaboration (teams working on same projects)
+SELECT 
+    t1.name as team1,
+    t2.name as team2,
+    p.name as shared_project,
+    COUNT(*) as apps_count
+FROM applications a1
+JOIN applications a2 ON a1.project_id = a2.project_id AND a1.appteam_id < a2.appteam_id
+JOIN appteams t1 ON a1.appteam_id = t1.id
+JOIN appteams t2 ON a2.appteam_id = t2.id
+JOIN projects p ON a1.project_id = p.id
+GROUP BY t1.name, t2.name, p.name;
+
+
+-- ========================================
+-- Elasticsearch Sample Queries
+-- ========================================
+
+-- 1. Full-text search across applications
+POST /applications/_search
+{
+  "query": {
+    "multi_match": {
+      "query": "authentication api",
+      "fields": ["name^3", "description^2", "searchText"],
+      "type": "best_fields"
+    }
+  },
+  "highlight": {
+    "fields": {
+      "name": {},
+      "description": {}
+    }
+  }
+}
+
+-- 2. Filter applications by team
+POST /applications/_search
+{
+  "query": {
+    "term": {
+      "appteamId": 1
+    }
+  }
+}
+
+-- 3. Search by project owner
+POST /applications/_search
+{
+  "query": {
+    "match": {
+      "projectOwnerName": "John Smith"
+    }
+  }
+}
+
+-- 4. Aggregation: Applications by team
+POST /applications/_search
+{
+  "size": 0,
+  "aggs": {
+    "by_team": {
+      "terms": {
+        "field": "teamName.keyword",
+        "size": 20
+      },
+      "aggs": {
+        "avg_team_size": {
+          "avg": {
+            "field": "teamMemberCount"
+          }
+        }
+      }
+    }
+  }
+}
+
+-- 5. Aggregation: Applications by project
+POST /applications/_search
+{
+  "size": 0,
+  "aggs": {
+    "by_project": {
+      "terms": {
+        "field": "projectName.keyword",
+        "size": 20
+      }
+    }
+  }
+}
+
+-- 6. Complex search: Find applications by team member email
+POST /applications/_search
+{
+  "query": {
+    "term": {
+      "teamMemberEmails": "john.smith1@example.com"
+    }
+  }
+}
+
+-- 7. Fuzzy search for typos
+POST /applications/_search
+{
+  "query": {
+    "fuzzy": {
+      "name": {
+        "value": "authntication",
+        "fuzziness": "AUTO"
+      }
+    }
+  }
+}
+
+-- 8. Combined filters and search
+POST /applications/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "description": "processing"
+          }
+        }
+      ],
+      "filter": [
+        {
+          "term": {
+            "appteamId": 1
+          }
+        },
+        {
+          "range": {
+            "teamMemberCount": {
+              "gte": 3
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+
+-- 9. Nested aggregation: Projects by owner with app count
+POST /applications/_search
+{
+  "size": 0,
+  "aggs": {
+    "by_owner": {
+      "terms": {
+        "field": "projectOwnerName.keyword"
+      },
+      "aggs": {
+        "by_project": {
+          "terms": {
+            "field": "projectName.keyword"
+          }
+        }
+      }
+    }
+  }
+}
+
+-- 10. Search with suggestions (for autocomplete)
+POST /applications/_search
+{
+  "suggest": {
+    "app-suggest": {
+      "prefix": "api",
+      "completion": {
+        "field": "name.keyword"
+      }
+    }
+  }
+}

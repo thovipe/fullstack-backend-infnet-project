@@ -1,0 +1,91 @@
+{
+  "mappings": {
+    "properties": {
+      "id": {
+        "type": "long"
+      },
+      "name": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "description": {
+        "type": "text"
+      },
+      "appteamId": {
+        "type": "long"
+      },
+      "projectId": {
+        "type": "long"
+      },
+      "teamName": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "teamDescription": {
+        "type": "text"
+      },
+      "teamMemberCount": {
+        "type": "integer"
+      },
+      "teamMemberIds": {
+        "type": "long"
+      },
+      "teamMemberNames": {
+        "type": "text"
+      },
+      "teamMemberEmails": {
+        "type": "keyword"
+      },
+      "projectName": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "projectDescription": {
+        "type": "text"
+      },
+      "projectOwnerId": {
+        "type": "long"
+      },
+      "projectOwnerName": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "projectOwnerEmail": {
+        "type": "keyword"
+      },
+      "searchText": {
+        "type": "text"
+      },
+      "indexedAt": {
+        "type": "date"
+      }
+    }
+  },
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 1,
+    "analysis": {
+      "analyzer": {
+        "default": {
+          "type": "standard"
+        }
+      }
+    }
+  }
+}

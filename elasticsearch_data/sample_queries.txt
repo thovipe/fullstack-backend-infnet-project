@@ -1,0 +1,150 @@
+
+# Sample Elasticsearch Queries
+# Use these with: curl -X POST "localhost:9200/applications/_search" -H "Content-Type: application/json" -d @query.json
+
+# 1. Search by application name
+{
+  "query": {
+    "match": {
+      "name": "API"
+    }
+  }
+}
+
+# 2. Search by team name
+{
+  "query": {
+    "match": {
+      "teamName": "Platform"
+    }
+  }
+}
+
+# 3. Full-text search across all fields
+{
+  "query": {
+    "multi_match": {
+      "query": "authentication processing",
+      "fields": ["name^3", "description^2", "searchText"]
+    }
+  },
+  "highlight": {
+    "fields": {
+      "name": {},
+      "description": {}
+    }
+  }
+}
+
+# 4. Filter by team member email
+{
+  "query": {
+    "term": {
+      "teamMemberEmails": "john.smith1@example.com"
+    }
+  }
+}
+
+# 5. Filter by project owner
+{
+  "query": {
+    "match": {
+      "projectOwnerName": "John Smith"
+    }
+  }
+}
+
+# 6. Aggregation: Applications by team
+{
+  "size": 0,
+  "aggs": {
+    "by_team": {
+      "terms": {
+        "field": "teamName.keyword",
+        "size": 20
+      },
+      "aggs": {
+        "avg_team_size": {
+          "avg": {
+            "field": "teamMemberCount"
+          }
+        }
+      }
+    }
+  }
+}
+
+# 7. Aggregation: Applications by project
+{
+  "size": 0,
+  "aggs": {
+    "by_project": {
+      "terms": {
+        "field": "projectName.keyword",
+        "size": 20
+      }
+    }
+  }
+}
+
+# 8. Complex query: Find applications with large teams
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "description": "service"
+          }
+        }
+      ],
+      "filter": [
+        {
+          "range": {
+            "teamMemberCount": {
+              "gte": 5
+            }
+          }
+        }
+      ]
+    }
+  },
+  "sort": [
+    {
+      "teamMemberCount": "desc"
+    }
+  ]
+}
+
+# 9. Search by multiple team members
+{
+  "query": {
+    "terms": {
+      "teamMemberEmails": [
+        "john.smith1@example.com",
+        "jane.johnson2@example.com"
+      ]
+    }
+  }
+}
+
+# 10. Nested aggregation: Projects by owner
+{
+  "size": 0,
+  "aggs": {
+    "by_owner": {
+      "terms": {
+        "field": "projectOwnerName.keyword",
+        "size": 10
+      },
+      "aggs": {
+        "by_project": {
+          "terms": {
+            "field": "projectName.keyword",
+            "size": 5
+          }
+        }
+      }
+    }
+  }
+}

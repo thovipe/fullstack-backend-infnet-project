@@ -1,0 +1,702 @@
+[
+  {
+    "id": 1,
+    "name": "Automation Analyzer 1",
+    "description": "Analyzer service built with Node.js for Automation Project 16. Handles authentication",
+    "appteamId": 11,
+    "projectId": 16
+  },
+  {
+    "id": 2,
+    "name": "Integration Worker 2",
+    "description": "Worker service built with Python for Integration Project 27. Handles webhooks",
+    "appteamId": 1,
+    "projectId": 27
+  },
+  {
+    "id": 3,
+    "name": "Monitoring Monitor 3",
+    "description": "Monitor service built with Ruby for Monitoring Project 17. Handles notifications",
+    "appteamId": 6,
+    "projectId": 17
+  },
+  {
+    "id": 4,
+    "name": "Integration Engine 4",
+    "description": "Engine service built with React for Integration Project 20. Handles reporting",
+    "appteamId": 14,
+    "projectId": 20
+  },
+  {
+    "id": 5,
+    "name": "Integration Controller 5",
+    "description": "Controller service built with Angular for Integration Project 20. Handles reporting",
+    "appteamId": 2,
+    "projectId": 20
+  },
+  {
+    "id": 6,
+    "name": "CRM Tracker 6",
+    "description": "Tracker service built with .NET for CRM Project 14. Handles webhooks",
+    "appteamId": 7,
+    "projectId": 14
+  },
+  {
+    "id": 7,
+    "name": "Integration Generator 7",
+    "description": "Generator service built with Ruby for Integration Project 29. Handles notifications",
+    "appteamId": 18,
+    "projectId": 29
+  },
+  {
+    "id": 8,
+    "name": "Social Tracker 8",
+    "description": "Tracker service built with Vue for Social Project 30. Handles notifications",
+    "appteamId": 19,
+    "projectId": 30
+  },
+  {
+    "id": 9,
+    "name": "Marketplace Handler 9",
+    "description": "Handler service built with Node.js for Marketplace Project 9. Handles data processing",
+    "appteamId": 18,
+    "projectId": 9
+  },
+  {
+    "id": 10,
+    "name": "Automation Generator 10",
+    "description": "Generator service built with Angular for Automation Project 1. Handles reporting",
+    "appteamId": 15,
+    "projectId": 1
+  },
+  {
+    "id": 11,
+    "name": "Automation Service 11",
+    "description": "Service service built with Angular for Automation Project 16. Handles integrations",
+    "appteamId": 3,
+    "projectId": 16
+  },
+  {
+    "id": 12,
+    "name": "Portal Generator 12",
+    "description": "Generator service built with Vue for Portal Project 22. Handles reporting",
+    "appteamId": 5,
+    "projectId": 22
+  },
+  {
+    "id": 13,
+    "name": "E-commerce Validator 13",
+    "description": "Validator service built with C# for E-commerce Project 15. Handles file uploads",
+    "appteamId": 20,
+    "projectId": 15
+  },
+  {
+    "id": 14,
+    "name": "Integration API 14",
+    "description": "API service built with Angular for Integration Project 6. Handles payments",
+    "appteamId": 18,
+    "projectId": 6
+  },
+  {
+    "id": 15,
+    "name": "Monitoring Manager 15",
+    "description": "Manager service built with Vue for Monitoring Project 17. Handles notifications",
+    "appteamId": 16,
+    "projectId": 17
+  },
+  {
+    "id": 16,
+    "name": "CRM Controller 16",
+    "description": "Controller service built with Ruby for CRM Project 18. Handles webhooks",
+    "appteamId": 10,
+    "projectId": 18
+  },
+  {
+    "id": 17,
+    "name": "Dashboard Manager 17",
+    "description": "Manager service built with Angular for Dashboard Project 26. Handles webhooks",
+    "appteamId": 17,
+    "projectId": 26
+  },
+  {
+    "id": 18,
+    "name": "CMS Generator 18",
+    "description": "Generator service built with C# for CMS Project 13. Handles data processing",
+    "appteamId": 17,
+    "projectId": 13
+  },
+  {
+    "id": 19,
+    "name": "Dashboard Worker 19",
+    "description": "Worker service built with Python for Dashboard Project 26. Handles webhooks",
+    "appteamId": 15,
+    "projectId": 26
+  },
+  {
+    "id": 20,
+    "name": "Dashboard Service 20",
+    "description": "Service service built with PHP for Dashboard Project 26. Handles data processing",
+    "appteamId": 8,
+    "projectId": 26
+  },
+  {
+    "id": 21,
+    "name": "Marketplace Analyzer 21",
+    "description": "Analyzer service built with C# for Marketplace Project 25. Handles integrations",
+    "appteamId": 13,
+    "projectId": 25
+  },
+  {
+    "id": 22,
+    "name": "Dashboard API 22",
+    "description": "API service built with Node.js for Dashboard Project 23. Handles notifications",
+    "appteamId": 6,
+    "projectId": 23
+  },
+  {
+    "id": 23,
+    "name": "Automation Engine 23",
+    "description": "Engine service built with Vue for Automation Project 8. Handles notifications",
+    "appteamId": 9,
+    "projectId": 8
+  },
+  {
+    "id": 24,
+    "name": "Automation Monitor 24",
+    "description": "Monitor service built with Java for Automation Project 16. Handles file uploads",
+    "appteamId": 18,
+    "projectId": 16
+  },
+  {
+    "id": 25,
+    "name": "Integration API 25",
+    "description": "API service built with PHP for Integration Project 20. Handles payments",
+    "appteamId": 8,
+    "projectId": 20
+  },
+  {
+    "id": 26,
+    "name": "Analytics Processor 26",
+    "description": "Processor service built with Angular for Analytics Project 4. Handles file uploads",
+    "appteamId": 8,
+    "projectId": 4
+  },
+  {
+    "id": 27,
+    "name": "E-commerce Engine 27",
+    "description": "Engine service built with React for E-commerce Project 15. Handles file uploads",
+    "appteamId": 15,
+    "projectId": 15
+  },
+  {
+    "id": 28,
+    "name": "ERP Generator 28",
+    "description": "Generator service built with Java for ERP Project 24. Handles notifications",
+    "appteamId": 16,
+    "projectId": 24
+  },
+  {
+    "id": 29,
+    "name": "Messaging Generator 29",
+    "description": "Generator service built with Ruby for Messaging Project 28. Handles data processing",
+    "appteamId": 18,
+    "projectId": 28
+  },
+  {
+    "id": 30,
+    "name": "ERP Generator 30",
+    "description": "Generator service built with Vue for ERP Project 19. Handles authentication",
+    "appteamId": 18,
+    "projectId": 19
+  },
+  {
+    "id": 31,
+    "name": "Automation Validator 31",
+    "description": "Validator service built with Angular for Automation Project 8. Handles file uploads",
+    "appteamId": 17,
+    "projectId": 8
+  },
+  {
+    "id": 32,
+    "name": "CMS Engine 32",
+    "description": "Engine service built with Go for CMS Project 13. Handles reporting",
+    "appteamId": 11,
+    "projectId": 13
+  },
+  {
+    "id": 33,
+    "name": "Monitoring Manager 33",
+    "description": "Manager service built with .NET for Monitoring Project 10. Handles payments",
+    "appteamId": 19,
+    "projectId": 10
+  },
+  {
+    "id": 34,
+    "name": "CRM Scheduler 34",
+    "description": "Scheduler service built with Java for CRM Project 14. Handles file uploads",
+    "appteamId": 8,
+    "projectId": 14
+  },
+  {
+    "id": 35,
+    "name": "CRM Controller 35",
+    "description": "Controller service built with C# for CRM Project 14. Handles file uploads",
+    "appteamId": 13,
+    "projectId": 14
+  },
+  {
+    "id": 36,
+    "name": "Portal Manager 36",
+    "description": "Manager service built with C# for Portal Project 22. Handles webhooks",
+    "appteamId": 12,
+    "projectId": 22
+  },
+  {
+    "id": 37,
+    "name": "Analytics Scheduler 37",
+    "description": "Scheduler service built with React for Analytics Project 5. Handles reporting",
+    "appteamId": 5,
+    "projectId": 5
+  },
+  {
+    "id": 38,
+    "name": "Automation Analyzer 38",
+    "description": "Analyzer service built with Ruby for Automation Project 1. Handles notifications",
+    "appteamId": 18,
+    "projectId": 1
+  },
+  {
+    "id": 39,
+    "name": "Marketplace Service 39",
+    "description": "Service service built with Vue for Marketplace Project 9. Handles reporting",
+    "appteamId": 4,
+    "projectId": 9
+  },
+  {
+    "id": 40,
+    "name": "Monitoring Engine 40",
+    "description": "Engine service built with PHP for Monitoring Project 10. Handles payments",
+    "appteamId": 19,
+    "projectId": 10
+  },
+  {
+    "id": 41,
+    "name": "CRM Service 41",
+    "description": "Service service built with .NET for CRM Project 18. Handles notifications",
+    "appteamId": 16,
+    "projectId": 18
+  },
+  {
+    "id": 42,
+    "name": "E-commerce Service 42",
+    "description": "Service service built with PHP for E-commerce Project 15. Handles webhooks",
+    "appteamId": 6,
+    "projectId": 15
+  },
+  {
+    "id": 43,
+    "name": "CRM Handler 43",
+    "description": "Handler service built with .NET for CRM Project 18. Handles notifications",
+    "appteamId": 19,
+    "projectId": 18
+  },
+  {
+    "id": 44,
+    "name": "Messaging Tracker 44",
+    "description": "Tracker service built with React for Messaging Project 11. Handles notifications",
+    "appteamId": 19,
+    "projectId": 11
+  },
+  {
+    "id": 45,
+    "name": "Automation Generator 45",
+    "description": "Generator service built with C# for Automation Project 8. Handles integrations",
+    "appteamId": 7,
+    "projectId": 8
+  },
+  {
+    "id": 46,
+    "name": "ERP Manager 46",
+    "description": "Manager service built with PHP for ERP Project 24. Handles data processing",
+    "appteamId": 11,
+    "projectId": 24
+  },
+  {
+    "id": 47,
+    "name": "Messaging Engine 47",
+    "description": "Engine service built with React for Messaging Project 11. Handles payments",
+    "appteamId": 3,
+    "projectId": 11
+  },
+  {
+    "id": 48,
+    "name": "Integration Processor 48",
+    "description": "Processor service built with Vue for Integration Project 6. Handles file uploads",
+    "appteamId": 12,
+    "projectId": 6
+  },
+  {
+    "id": 49,
+    "name": "Dashboard Monitor 49",
+    "description": "Monitor service built with React for Dashboard Project 21. Handles notifications",
+    "appteamId": 10,
+    "projectId": 21
+  },
+  {
+    "id": 50,
+    "name": "E-commerce Manager 50",
+    "description": "Manager service built with React for E-commerce Project 15. Handles webhooks",
+    "appteamId": 4,
+    "projectId": 15
+  },
+  {
+    "id": 51,
+    "name": "Integration Service 51",
+    "description": "Service service built with Go for Integration Project 27. Handles webhooks",
+    "appteamId": 16,
+    "projectId": 27
+  },
+  {
+    "id": 52,
+    "name": "Automation Processor 52",
+    "description": "Processor service built with Java for Automation Project 3. Handles notifications",
+    "appteamId": 12,
+    "projectId": 3
+  },
+  {
+    "id": 53,
+    "name": "Integration Tracker 53",
+    "description": "Tracker service built with Go for Integration Project 27. Handles integrations",
+    "appteamId": 8,
+    "projectId": 27
+  },
+  {
+    "id": 54,
+    "name": "Automation Service 54",
+    "description": "Service service built with C# for Automation Project 8. Handles reporting",
+    "appteamId": 12,
+    "projectId": 8
+  },
+  {
+    "id": 55,
+    "name": "Monitoring Processor 55",
+    "description": "Processor service built with Go for Monitoring Project 17. Handles notifications",
+    "appteamId": 18,
+    "projectId": 17
+  },
+  {
+    "id": 56,
+    "name": "Automation Service 56",
+    "description": "Service service built with .NET for Automation Project 16. Handles webhooks",
+    "appteamId": 15,
+    "projectId": 16
+  },
+  {
+    "id": 57,
+    "name": "Monitoring Service 57",
+    "description": "Service service built with Go for Monitoring Project 17. Handles webhooks",
+    "appteamId": 19,
+    "projectId": 17
+  },
+  {
+    "id": 58,
+    "name": "ERP Handler 58",
+    "description": "Handler service built with PHP for ERP Project 7. Handles webhooks",
+    "appteamId": 16,
+    "projectId": 7
+  },
+  {
+    "id": 59,
+    "name": "Automation Validator 59",
+    "description": "Validator service built with C# for Automation Project 2. Handles webhooks",
+    "appteamId": 18,
+    "projectId": 2
+  },
+  {
+    "id": 60,
+    "name": "Automation Tracker 60",
+    "description": "Tracker service built with Node.js for Automation Project 16. Handles authentication",
+    "appteamId": 12,
+    "projectId": 16
+  },
+  {
+    "id": 61,
+    "name": "Integration Tracker 61",
+    "description": "Tracker service built with PHP for Integration Project 6. Handles notifications",
+    "appteamId": 8,
+    "projectId": 6
+  },
+  {
+    "id": 62,
+    "name": "Messaging Generator 62",
+    "description": "Generator service built with React for Messaging Project 11. Handles authentication",
+    "appteamId": 8,
+    "projectId": 11
+  },
+  {
+    "id": 63,
+    "name": "ERP Monitor 63",
+    "description": "Monitor service built with Java for ERP Project 19. Handles reporting",
+    "appteamId": 4,
+    "projectId": 19
+  },
+  {
+    "id": 64,
+    "name": "Social Scheduler 64",
+    "description": "Scheduler service built with Go for Social Project 30. Handles reporting",
+    "appteamId": 2,
+    "projectId": 30
+  },
+  {
+    "id": 65,
+    "name": "E-commerce Validator 65",
+    "description": "Validator service built with Go for E-commerce Project 15. Handles reporting",
+    "appteamId": 18,
+    "projectId": 15
+  },
+  {
+    "id": 66,
+    "name": "E-commerce Analyzer 66",
+    "description": "Analyzer service built with Python for E-commerce Project 15. Handles data processing",
+    "appteamId": 7,
+    "projectId": 15
+  },
+  {
+    "id": 67,
+    "name": "Messaging Analyzer 67",
+    "description": "Analyzer service built with Ruby for Messaging Project 11. Handles authentication",
+    "appteamId": 15,
+    "projectId": 11
+  },
+  {
+    "id": 68,
+    "name": "Monitoring API 68",
+    "description": "API service built with Java for Monitoring Project 10. Handles authentication",
+    "appteamId": 10,
+    "projectId": 10
+  },
+  {
+    "id": 69,
+    "name": "ERP Tracker 69",
+    "description": "Tracker service built with C# for ERP Project 7. Handles authentication",
+    "appteamId": 12,
+    "projectId": 7
+  },
+  {
+    "id": 70,
+    "name": "Portal API 70",
+    "description": "API service built with .NET for Portal Project 22. Handles notifications",
+    "appteamId": 18,
+    "projectId": 22
+  },
+  {
+    "id": 71,
+    "name": "Social Generator 71",
+    "description": "Generator service built with Python for Social Project 30. Handles integrations",
+    "appteamId": 16,
+    "projectId": 30
+  },
+  {
+    "id": 72,
+    "name": "Marketplace Scheduler 72",
+    "description": "Scheduler service built with Angular for Marketplace Project 9. Handles file uploads",
+    "appteamId": 5,
+    "projectId": 9
+  },
+  {
+    "id": 73,
+    "name": "Monitoring Analyzer 73",
+    "description": "Analyzer service built with Ruby for Monitoring Project 10. Handles webhooks",
+    "appteamId": 18,
+    "projectId": 10
+  },
+  {
+    "id": 74,
+    "name": "Automation Validator 74",
+    "description": "Validator service built with C# for Automation Project 8. Handles file uploads",
+    "appteamId": 19,
+    "projectId": 8
+  },
+  {
+    "id": 75,
+    "name": "Marketplace Processor 75",
+    "description": "Processor service built with C# for Marketplace Project 9. Handles integrations",
+    "appteamId": 9,
+    "projectId": 9
+  },
+  {
+    "id": 76,
+    "name": "CMS Analyzer 76",
+    "description": "Analyzer service built with Vue for CMS Project 13. Handles integrations",
+    "appteamId": 8,
+    "projectId": 13
+  },
+  {
+    "id": 77,
+    "name": "Automation Processor 77",
+    "description": "Processor service built with Angular for Automation Project 2. Handles notifications",
+    "appteamId": 9,
+    "projectId": 2
+  },
+  {
+    "id": 78,
+    "name": "Dashboard Generator 78",
+    "description": "Generator service built with React for Dashboard Project 21. Handles data processing",
+    "appteamId": 19,
+    "projectId": 21
+  },
+  {
+    "id": 79,
+    "name": "Automation Processor 79",
+    "description": "Processor service built with Ruby for Automation Project 8. Handles file uploads",
+    "appteamId": 16,
+    "projectId": 8
+  },
+  {
+    "id": 80,
+    "name": "E-commerce Engine 80",
+    "description": "Engine service built with PHP for E-commerce Project 15. Handles integrations",
+    "appteamId": 1,
+    "projectId": 15
+  },
+  {
+    "id": 81,
+    "name": "ERP Monitor 81",
+    "description": "Monitor service built with Angular for ERP Project 7. Handles file uploads",
+    "appteamId": 7,
+    "projectId": 7
+  },
+  {
+    "id": 82,
+    "name": "Dashboard Handler 82",
+    "description": "Handler service built with C# for Dashboard Project 21. Handles notifications",
+    "appteamId": 1,
+    "projectId": 21
+  },
+  {
+    "id": 83,
+    "name": "ERP Controller 83",
+    "description": "Controller service built with Vue for ERP Project 24. Handles webhooks",
+    "appteamId": 13,
+    "projectId": 24
+  },
+  {
+    "id": 84,
+    "name": "Integration API 84",
+    "description": "API service built with React for Integration Project 6. Handles payments",
+    "appteamId": 1,
+    "projectId": 6
+  },
+  {
+    "id": 85,
+    "name": "Marketplace Worker 85",
+    "description": "Worker service built with .NET for Marketplace Project 25. Handles authentication",
+    "appteamId": 11,
+    "projectId": 25
+  },
+  {
+    "id": 86,
+    "name": "CRM Tracker 86",
+    "description": "Tracker service built with Angular for CRM Project 14. Handles data processing",
+    "appteamId": 15,
+    "projectId": 14
+  },
+  {
+    "id": 87,
+    "name": "Automation Validator 87",
+    "description": "Validator service built with Go for Automation Project 2. Handles notifications",
+    "appteamId": 1,
+    "projectId": 2
+  },
+  {
+    "id": 88,
+    "name": "Integration Worker 88",
+    "description": "Worker service built with React for Integration Project 27. Handles authentication",
+    "appteamId": 8,
+    "projectId": 27
+  },
+  {
+    "id": 89,
+    "name": "Portal Generator 89",
+    "description": "Generator service built with Node.js for Portal Project 22. Handles payments",
+    "appteamId": 14,
+    "projectId": 22
+  },
+  {
+    "id": 90,
+    "name": "CMS Worker 90",
+    "description": "Worker service built with C# for CMS Project 13. Handles webhooks",
+    "appteamId": 12,
+    "projectId": 13
+  },
+  {
+    "id": 91,
+    "name": "Monitoring Processor 91",
+    "description": "Processor service built with C# for Monitoring Project 10. Handles webhooks",
+    "appteamId": 12,
+    "projectId": 10
+  },
+  {
+    "id": 92,
+    "name": "Marketplace Handler 92",
+    "description": "Handler service built with Vue for Marketplace Project 25. Handles file uploads",
+    "appteamId": 16,
+    "projectId": 25
+  },
+  {
+    "id": 93,
+    "name": "Automation Tracker 93",
+    "description": "Tracker service built with Java for Automation Project 1. Handles authentication",
+    "appteamId": 18,
+    "projectId": 1
+  },
+  {
+    "id": 94,
+    "name": "Integration API 94",
+    "description": "API service built with PHP for Integration Project 27. Handles data processing",
+    "appteamId": 13,
+    "projectId": 27
+  },
+  {
+    "id": 95,
+    "name": "Integration Engine 95",
+    "description": "Engine service built with C# for Integration Project 6. Handles notifications",
+    "appteamId": 3,
+    "projectId": 6
+  },
+  {
+    "id": 96,
+    "name": "Automation Scheduler 96",
+    "description": "Scheduler service built with Ruby for Automation Project 8. Handles notifications",
+    "appteamId": 20,
+    "projectId": 8
+  },
+  {
+    "id": 97,
+    "name": "Monitoring API 97",
+    "description": "API service built with Node.js for Monitoring Project 10. Handles payments",
+    "appteamId": 17,
+    "projectId": 10
+  },
+  {
+    "id": 98,
+    "name": "ERP Handler 98",
+    "description": "Handler service built with Angular for ERP Project 19. Handles payments",
+    "appteamId": 10,
+    "projectId": 19
+  },
+  {
+    "id": 99,
+    "name": "Automation Analyzer 99",
+    "description": "Analyzer service built with Go for Automation Project 8. Handles notifications",
+    "appteamId": 11,
+    "projectId": 8
+  },
+  {
+    "id": 100,
+    "name": "CRM Generator 100",
+    "description": "Generator service built with Go for CRM Project 18. Handles reporting",
+    "appteamId": 2,
+    "projectId": 18
+  }
+]

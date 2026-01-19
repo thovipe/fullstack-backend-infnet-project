@@ -1,0 +1,153 @@
+[
+  {
+    "id": 1,
+    "name": "Automation Analyzer 1",
+    "description": "Analyzer service built with Node.js for Automation Project 16. Handles authentication",
+    "teamName": "Security Team 11",
+    "projectName": "Automation Project 16",
+    "projectOwner": "John White",
+    "teamMemberCount": 7,
+    "teamMembers": [
+      {
+        "name": "Christopher Wilson",
+        "email": "christopher.wilson1@service.net"
+      },
+      {
+        "name": "Barbara Jones",
+        "email": "barbara.jones7@platform.dev"
+      },
+      {
+        "name": "Barbara Garcia",
+        "email": "barbara.garcia14@service.net"
+      },
+      {
+        "name": "Brian Martin",
+        "email": "brian.martin20@app.io"
+      },
+      {
+        "name": "John White",
+        "email": "john.white29@service.net"
+      },
+      {
+        "name": "Patricia Thomas",
+        "email": "patricia.thomas36@platform.dev"
+      },
+      {
+        "name": "Sarah Rodriguez",
+        "email": "sarah.rodriguez44@example.com"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Integration Worker 2",
+    "description": "Worker service built with Python for Integration Project 27. Handles webhooks",
+    "teamName": "Data Team 1",
+    "projectName": "Integration Project 27",
+    "projectOwner": "Susan Rodriguez",
+    "teamMemberCount": 5,
+    "teamMembers": [
+      {
+        "name": "Christopher Wilson",
+        "email": "christopher.wilson1@service.net"
+      },
+      {
+        "name": "Michael Clark",
+        "email": "michael.clark26@example.com"
+      },
+      {
+        "name": "Lisa Davis",
+        "email": "lisa.davis43@example.com"
+      },
+      {
+        "name": "Sarah Rodriguez",
+        "email": "sarah.rodriguez44@example.com"
+      },
+      {
+        "name": "Matthew Gonzalez",
+        "email": "matthew.gonzalez49@platform.dev"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Monitoring Monitor 3",
+    "description": "Monitor service built with Ruby for Monitoring Project 17. Handles notifications",
+    "teamName": "Security Team 6",
+    "projectName": "Monitoring Project 17",
+    "projectOwner": "Sarah Gonzalez",
+    "teamMemberCount": 7,
+    "teamMembers": [
+      {
+        "name": "Brian Thomas",
+        "email": "brian.thomas15@example.com"
+      },
+      {
+        "name": "Daniel Rodriguez",
+        "email": "daniel.rodriguez27@platform.dev"
+      },
+      {
+        "name": "Mary Hernandez",
+        "email": "mary.hernandez28@app.io"
+      },
+      {
+        "name": "John White",
+        "email": "john.white29@service.net"
+      },
+      {
+        "name": "Emily Miller",
+        "email": "emily.miller41@service.net"
+      },
+      {
+        "name": "Matthew Gonzalez",
+        "email": "matthew.gonzalez49@platform.dev"
+      },
+      {
+        "name": "Sarah Gonzalez",
+        "email": "sarah.gonzalez50@service.net"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Integration Engine 4",
+    "description": "Engine service built with React for Integration Project 20. Handles reporting",
+    "teamName": "DevOps Team 14",
+    "projectName": "Integration Project 20",
+    "projectOwner": "Matthew Hernandez",
+    "teamMemberCount": 3,
+    "teamMembers": [
+      {
+        "name": "Jennifer White",
+        "email": "jennifer.white4@cloud.systems"
+      },
+      {
+        "name": "Daniel Rodriguez",
+        "email": "daniel.rodriguez27@platform.dev"
+      },
+      {
+        "name": "Sarah Rodriguez",
+        "email": "sarah.rodriguez44@example.com"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Integration Controller 5",
+    "description": "Controller service built with Angular for Integration Project 20. Handles reporting",
+    "teamName": "DevOps Team 2",
+    "projectName": "Integration Project 20",
+    "projectOwner": "Matthew Hernandez",
+    "teamMemberCount": 2,
+    "teamMembers": [
+      {
+        "name": "Kevin Anderson",
+        "email": "kevin.anderson13@service.net"
+      },
+      {
+        "name": "Lisa Davis",
+        "email": "lisa.davis43@example.com"
+      }
+    ]
+  }
+]

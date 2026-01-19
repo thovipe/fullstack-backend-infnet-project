@@ -1,0 +1,43 @@
+
+PUT /applications
+{
+  "mappings": {
+    "properties": {
+      "id": { "type": "long" },
+      "name": { 
+        "type": "text",
+        "fields": {
+          "keyword": { "type": "keyword" }
+        }
+      },
+      "description": { "type": "text" },
+      "appteamId": { "type": "long" },
+      "projectId": { "type": "long" },
+      "teamName": { 
+        "type": "text",
+        "fields": {
+          "keyword": { "type": "keyword" }
+        }
+      },
+      "teamDescription": { "type": "text" },
+      "projectName": { 
+        "type": "text",
+        "fields": {
+          "keyword": { "type": "keyword" }
+        }
+      },
+      "projectDescription": { "type": "text" },
+      "projectOwnerName": { 
+        "type": "text",
+        "fields": {
+          "keyword": { "type": "keyword" }
+        }
+      },
+      "projectOwnerEmail": { "type": "keyword" },
+      "teamMemberCount": { "type": "integer" },
+      "teamMemberNames": { "type": "text" },
+      "teamMemberEmails": { "type": "keyword" },
+      "searchText": { "type": "text" }
+    }
+  }
+}
