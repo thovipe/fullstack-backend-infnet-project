@@ -258,7 +258,7 @@ This script:
 | DATABASE_URL | PostgreSQL connection URL | jdbc:postgresql://postgres:5432/infraServices |
 | ISSUER_URI | Keycloak issuer URI | http://keycloak:7080/realms/allthom |
 | JWK_URI | Keycloak JWK set URI | http://keycloak:7080/realms/allthom/protocol/openid-connect/certs |
-
+| ELASTIC_URL | Elastic URL | http://elasticsearch:9200 |
 ## Monitoring and Administration
 
 ### PgAdmin
