@@ -92,7 +92,7 @@ services:
         - project
 
   api:
-      image: infraapi:0.0.4
+      image: infraapi:0.0.5
       container_name: infraapi
       ports:
         - "8080:8080"
@@ -100,6 +100,7 @@ services:
         DATABASE_URL: jdbc:postgresql://postgres:5432/infraServices
         ISSUER_URI: http://keycloak:7080/realms/allthom
         JWK_URI: http://keycloak:7080/realms/allthom/protocol/openid-connect/certs
+        ELASTIC_URL: http://elasticsearch:9200
       depends_on:
         - postgres
         - elasticsearch

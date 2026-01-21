@@ -30,3 +30,6 @@ logging:
     org:
       springframework:
         web: INFO
+
+elasticsearch:
+  url: ${ELASTIC_URL}
